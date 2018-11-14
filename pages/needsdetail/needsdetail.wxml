@@ -1,0 +1,30 @@
+<!--pages/goodsdetail/goodsdetail.wxml-->
+<view class='box'>
+  <view class='box1'>
+    <image class='avatar' src='{{detail.user.avatarUrl}}'></image>
+    <view class='box1-left'>
+      <view class='user-name'>{{detail.user.nickName}}</view>
+      <view class='time'>{{detail.created}}</view>
+    </view>
+  </view>
+
+
+  <view class='box3'>
+    <text>{{detail.description}}</text>
+  </view>
+
+  <view class='box4'>
+    <block wx:for="{{detail.images}}" wx:key="index">
+      <image src='{{item.url}}' style='width:100%' mode='widthFix'></image>
+    </block>
+  </view>
+
+  <view class='bottom'>
+    <view class='bottom-left'>
+      <!-- <image class='like-img' src='/images/liked.png' bindtap='wantTap'wx:if="{{wantStatus}}"></image>
+      <image class='like-img' src='/images/like.png' bindtap='wantTap' wx:else></image>
+      <text>收藏</text> -->
+    </view>
+    <text class='want-text' bindtap='copy'>联系</text>
+  </view>
+</view>

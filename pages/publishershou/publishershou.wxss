@@ -1,0 +1,173 @@
+/* pages/publishershou/publishershou.wxss */
+
+page {
+  background-color: #f8f8f8;
+  font-size: 26rpx;
+  color: #434446;
+}
+
+.box {
+  padding: 20rpx;
+  background-color: white;
+}
+
+.box1 {
+  display: flex;
+}
+
+.box1 image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.box1-right {
+  margin-left: 20rpx;
+}
+
+.box1-right text {
+  display: block;
+}
+
+/*  */
+
+.box2 {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box2-right {
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  color: #a9aaac;
+}
+
+/*  */
+
+.box3 {
+  display: flex;
+  align-items: center;
+}
+
+.box3 input {
+  flex: 1;
+  text-align: right;
+  display: inline-block;
+  padding-right: 20rpx;
+}
+
+.money {
+  color: #ff6263;
+}
+
+.box-t {
+  padding: 20rpx;
+}
+
+/*  */
+
+.box4 {
+  margin-top: 30rpx;
+  display: flex;
+}
+
+.box4-right {
+  flex: 1;
+  height: 240rpx;
+}
+
+/*  */
+
+.box5 {
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.box5-v {
+  padding: 8rpx;
+  height: 200rpx;
+}
+
+.box5-image {
+  width: 176rpx;
+  height: 176rpx;
+}
+
+.box5-delete {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: -40rpx;
+  z-index: 1;
+}
+
+.btn-bottom-fixed {
+  position: fixed;
+  bottom: 20rpx;
+  background-color: #ff6263;
+  color: white;
+  border-radius: 0;
+  left: 5%;
+  right: 5%;
+  font-size: 30rpx;
+}
+
+.camera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  width: 176rpx;
+  height: 176rpx;
+}
+
+.camera image {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.addpic-text {
+  font-size: 24rpx;
+  padding-top: 20rpx;
+}
+
+.box-contact {
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input_name {
+  display: inline-block;
+  font-size: 26rpx;
+  text-align: right;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.get-phone {
+  display: inline-block;
+  height: 60rpx;
+  font-size: 20rpx;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60rpx;
+  border-radius: 0;
+  background-color: #f8f8f8;
+  color: #434446;
+}
+
+.box-free {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}

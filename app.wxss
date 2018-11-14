@@ -1,0 +1,21 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/* 右边小箭头 */
+.arrow{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+page{
+  background: #f8f8f8;
+}
+

@@ -1,0 +1,37 @@
+<!--pages/mineneed/mineneed.wxml-->
+<import src="/templates/loading/loading.wxml" />
+<import src="/templates/nothing/nothing.wxml" />
+
+<view wx:if="{{!notFirstLoad}}" class='first-load'>
+  <template is="first-load"></template>
+</view>
+
+<view wx:else>
+  <view wx:if="{{content.list.length}}">
+    <view class='products'>
+      <block wx:for="{{content.list}}" wx:key="index">
+        <view class='product-box'>
+          <view class='product-v'>
+            <view class='product-right' bindtap='goodsDetail' data-goods_id='{{item.goods.id}}'>
+              <image src='{{item.goods.head_url}}' mode='widthFix'></image>
+            </view>
+            <view class='product-left'>
+              <view class='product-left-v1'>
+                <text class='description'>{{item.goods.description}}</text>
+                <text class='like'>{{item.goods.like}}人收藏</text>
+              </view>
+              <view class='price-v'>
+                <text class='rmb'>¥</text>
+                <text class='price'>{{item.goods.price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <template is="bottom-loading" data="{{hasMore:content.hasMore}}" />
+  </view>
+  <view wx:else>
+    <template is="nothing" data="{{nothing:nothing}}"></template>
+  </view>
+</view>

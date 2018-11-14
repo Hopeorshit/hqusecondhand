@@ -1,0 +1,87 @@
+/* pages/goodsdetail/goodsdetail.wxss */
+
+.box {
+  font-size: 28rpx;
+  color: #434446;
+  padding: 0 20rpx;
+  padding-bottom: 120rpx;
+}
+
+.box1{
+ margin-top: 30rpx; 
+ padding:20rpx 0; 
+ display: flex; 
+}
+.avatar{
+  width: 80rpx;
+  height: 80rpx;
+}
+.box1-left{
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.user-name{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.time{
+  padding-top: 6rpx;
+  font-size: 24rpx;
+  color: #a9aaac;
+}
+
+.box2{
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+  color: #ff6263;
+}
+
+.rmb{
+  font-size: 24rpx;
+}
+
+.price{
+  font-size: 34rpx;
+}
+
+.box3{
+  padding-bottom: 30rpx;
+}
+
+
+/* bottom-fixed */
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx;
+  display: flex;
+  box-shadow: 0 -1px #f8f8f8;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+.like-img{
+  width: 50rpx;
+  height: 50rpx;
+  padding: 4rpx;
+}
+
+.bottom-left{
+  display: flex;
+  align-items: center;
+}
+
+.want-text{
+  background:#ff6263;
+  color: white;
+  padding: 0 40rpx;
+  line-height: 50rpx;
+}
+
+
+
+

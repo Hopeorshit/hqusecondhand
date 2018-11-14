@@ -1,0 +1,109 @@
+@import '/style/weui-navbar.wxss';
+@import '/style/weui-searchbar.wxss';
+@import '/templates/goods/goods.wxss';
+@import '/templates/loading/loading.wxss';
+
+/* 
+  窗口可用高度减去搜索框的高度为内容区域的高度
+ */
+
+page {
+  height: 100%;
+}
+
+/* banner  */
+
+.bannerbox {
+  height: 224rpx;
+  width: 100%;
+}
+
+.swiper {
+  height: 224rpx;
+  width: 100%;
+}
+
+.slide-image {
+  height: 224rpx;
+  width: 100%;
+}
+
+/* 搜索框*/
+
+.search-bar-box {
+}
+
+.weui-search-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  top: 0rpx;
+  height: 92rpx;
+  background-color: white;
+}
+
+.weui-search-bar__form {
+  border-radius: 40rpx;
+  margin: 0 30rpx;
+}
+
+.weui-search-bar__label {
+  border-radius: 40rpx;
+}
+
+.weui-icon-clear {
+  position: absolute;
+  right: 10px;
+  top: -1px;
+}
+
+/* 类目内容区 */
+
+.content {
+  padding-top: 146rpx;
+}
+
+.weui-navbar {
+  border-bottom: 1rpx solid #f5f5f5;
+  background-color: white;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #ff6263;
+}
+
+.weui-navbar__item {
+  color: #a9aaac;
+  padding: 0;
+}
+
+.weui-navbar__title {
+  font-size: 30rpx;
+  line-height: 54rpx;
+  margin: 0 25rpx;
+}
+
+.weui-navbar__slider {
+  background-color: #ff6263;
+  margin-left: 25rpx;
+}
+
+/* 横向scroll-view */
+
+.scroll-view {
+  top: 90rpx;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  height:58rpx;
+  background-color: white;
+}
+
+/* 竖向scroll-view */
+
+.scroll-y {
+  height: 100%;
+  /* 让高度包括padding*/
+  box-sizing: border-box;
+}

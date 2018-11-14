@@ -1,0 +1,9 @@
+/* pages/free/free.wxss */
+@import "/templates/product-small-other/product-small-other.wxss";
+@import "/templates/loading/loading.wxss";
+
+Page{
+  background-color: #f8f8f8;
+  height: 100%;
+}
+

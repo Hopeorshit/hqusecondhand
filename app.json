@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/free/free",
+    "pages/publish/publish",
+    "pages/need/need",
+    "pages/mine/mine",
+    "pages/logs/logs",
+    "pages/publishershou/publishershou",
+    "pages/publishneed/publishneed",
+    "pages/login/login",
+    "pages/minepublish/minepublish",
+    "pages/mineneed/mineneed",
+    "pages/goodsdetail/goodsdetail",
+    "pages/needsdetail/needsdetail",
+    "pages/minewant/minewant",
+    "pages/search/search",
+    "pages/rule/rule"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6263",
+    "navigationBarTitleText": "华园二手",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#ff6263",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "二手",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_sel.png"
+      },
+      {
+        "pagePath": "pages/free/free",
+        "text": "免费",
+        "iconPath": "/images/free.png",
+        "selectedIconPath": "/images/free_sel.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "/images/publish.png",
+        "selectedIconPath": "/images/publish_sel.png"
+      },
+      {
+        "pagePath": "pages/need/need",
+        "text": "需求",
+        "iconPath": "/images/need.png",
+        "selectedIconPath": "/images/need_sel.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/images/mine.png",
+        "selectedIconPath": "/images/mine_sel.png"
+      }
+    ]
+  }
+}

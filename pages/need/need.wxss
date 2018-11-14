@@ -1,0 +1,6 @@
+/* pages/need/need.wxss */
+@import "/templates/needs/needs.wxss";
+@import "/templates/loading/loading.wxss";
+Page{
+  background-color: #f8f8f8;
+}

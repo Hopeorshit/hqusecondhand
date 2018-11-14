@@ -1,0 +1,119 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.1",
+	"appid": "wxae12d9efa1818123",
+	"projectname": "v0.0.1",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": -1,
+					"name": "日志",
+					"pathName": "pages/logs/logs",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "publish",
+					"pathName": "pages/publish/publish",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布二手",
+					"pathName": "pages/publishershou/publishershou",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布需求",
+					"pathName": "pages/publishneed/publishneed",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布",
+					"pathName": "pages/publish/publish",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "需求",
+					"pathName": "pages/need/need",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的需求",
+					"pathName": "pages/mineneed/mineneed",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的发布",
+					"pathName": "pages/minepublish/minepublish",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "商品详情",
+					"pathName": "pages/goodsdetail/goodsdetail",
+					"query": "goods_id=29"
+				},
+				{
+					"id": 11,
+					"name": "needs",
+					"pathName": "pages/needsdetail/needsdetail",
+					"query": "needs_id=1014"
+				},
+				{
+					"id": -1,
+					"name": " 免费领",
+					"pathName": "pages/free/free",
+					"query": ""
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,51 @@
+<!--pages/publishershou/publishershou.wxml-->
+
+<form bindsubmit='submit'>
+  <view>
+    <scroll-view scroll-x>
+      <view class='box box5'>
+        <view class='box5-v' bindtap='addPic'>
+          <view class='camera'>
+            <image src='/images/camera.png'></image>
+            <text class='addpic-text'>图片(可选)</text>
+          </view>
+        </view>
+        <view class='box5-v' wx:for="{{localImage}}" wx:key="{{index}}">
+          <image class='box5-image' src='{{item}}' bindtap='imagePreview' data-index='{{index}}'></image>
+          <image class='box5-delete' src='/images/delete.png' bindtap='deletePic' data-index="{{index}}"></image>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class='box box4'>
+      <textarea placeholder='在此填写需求信息(30字以内)' name='description' class='box4-right' maxlength='30'></textarea>
+    </view>
+
+    <view class='box box-contact'>
+      <text>联系方式</text>
+      <view>
+        <input class='input_name' name="phone" value='{{phone}}' placeholder='请填写手机号或微信号' maxlength='36'> </input>
+        <button class='get-phone' open-type="getPhoneNumber" bindgetphonenumber='phone'>获取手机号</button>
+      </view>
+    </view>
+
+
+    <picker bindchange="bindPickerChange" name="categoryID" value="{{category[index].id}}" range-key='name' range="{{category}}">
+      <view class='box box2'>
+        <text>分类</text>
+        <view class='box2-right'>
+          <text wx:if="{{!pickerSelected}}" class='select'>选择</text>
+          <text wx:else> {{category[index].name}}</text>
+          <image src='/images/right.png' class='arrow'></image>
+        </view>
+      </view>
+    </picker>
+
+    <button class='btn-bottom-fixed'  disabled='{{publishing}}' form-type='submit'>
+      发布
+    </button>
+
+  </view>
+
+
+</form>

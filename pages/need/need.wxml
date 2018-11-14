@@ -1,0 +1,12 @@
+<!--pages/need/need.wxml-->
+<import src="/templates/needs/needs.wxml" />
+<import src="/templates/loading/loading.wxml" />
+
+<view wx:if="{{!notFirstLoad}}" class='first-load'>
+  <template is="first-load"></template>
+</view>
+
+<view wx:else>
+  <template is="needs" data="{{list:content.list}}" />
+  <template is="bottom-loading" data="{{hasMore:content.hasMore}}" />
+</view>

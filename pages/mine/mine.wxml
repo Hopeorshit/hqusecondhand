@@ -1,0 +1,29 @@
+<!--pages/mine/mine.wxml-->
+<view class="mine" hidden='{{!loginStatus}}'>
+  <view class="user-info">
+    <image class="user-info-avatar" src="{{userInfo.avatarUrl}}" />
+    <span class="user-info-name">{{userInfo.nickName}}</span>
+  </view>
+  <view class="mine-list">
+    <view class="mine-list-item" bindtap='minePublish'>
+      <image src="/images/mine-fabu.png"  />
+      <span>我的发布</span>
+    </view>
+    <view class="mine-list-item" bindtap='mineNeed'>
+      <image src="/images/mine-need.png"  />
+      <span>我的需求</span>
+    </view>
+    <view class="mine-list-item" bindtap='mineWant'>
+      <image src="/images/mine-like.png" />
+      <span>我的想要</span>
+    </view>
+    <view class="mine-list-item" bindtap='rule' >
+      <image src="/images/mine-rule.png" />
+      <span>平台规则</span>
+    </view>
+    <button class="contact-button mine-list-item" open-type='contact'>
+      <image src="/images/mine-kefu.png" />
+      <span>联系客服</span>
+    </button>
+  </view>
+</view>

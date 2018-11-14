@@ -1,0 +1,8 @@
+<view class='box' hidden='{{!loginStatus}}'>
+  <view class='box-v' style='padding-bottom:120rpx' bindtap='ershou'>
+    <image src='/images/publish_ershou.png'></image>
+  </view>
+  <view class='box-v' bindtap='need'>
+    <image src="/images/publish_need.png"></image>
+  </view>
+</view>

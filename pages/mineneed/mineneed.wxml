@@ -1,0 +1,36 @@
+<!--pages/mineneed/mineneed.wxml-->
+<import src="/templates/loading/loading.wxml" />
+<import src="/templates/nothing/nothing.wxml" />
+
+<view wx:if="{{!notFirstLoad}}" class='first-load'>
+  <template is="first-load"></template>
+</view>
+
+<view wx:else>
+  <view wx:if="{{content.list.length}}">
+    <view class='products'>
+      <block wx:for="{{content.list}}" wx:key="index">
+        <view class='product-container'>
+          <view class='product-box' bindtap='needsDetail' data-needs_id='{{item.id}}'>
+            <view class='product-right' hidden='{{item.status==0}}'>
+              <image src='{{item.head_url}}' mode='widthFix'></image>
+            </view>
+            <view class='product-left'>
+              <view>
+                <text class='description'>{{item.description}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='btn-v'>
+            <text class='finish' bindtap='needsHandle' data-index="{{index}}" data-needs_id='{{item.id}}' data-handle_type='2'>已解决</text>
+            <text class='delete' bindtap='needsHandle' data-index="{{index}}" data-needs_id='{{item.id}}' data-handle_type='3'>删除</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <template is="bottom-loading" data="{{hasMore:content.hasMore}}" />
+  </view>
+  <view wx:else>
+    <template is="nothing" data="{{nothing:nothing}}"></template>
+  </view>
+</view>

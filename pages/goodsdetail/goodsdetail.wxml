@@ -1,0 +1,98 @@
+<!--pages/goodsdetail/goodsdetail.wxml-->
+<import src="/templates/loading/loading.wxml" />
+
+<view hidden='{{!loginStatus}}'>
+  <view wx:if="{{!notFirstLoad}}" class='first-load'>
+    <template is="first-load"></template>
+  </view>
+  <view wx:else>
+    <view class='box'>
+      <view class='box-detail'>
+        <view class='box1'>
+          <image class='avatar' src='{{detail.user.avatarUrl}}'></image>
+          <view class='box1-left'>
+            <view class='user-name'>{{detail.user.nickName}}</view>
+            <view class='time'>{{detail.created}}</view>
+          </view>
+        </view>
+
+        <view class='box2'>
+          <text class='rmb'>¥</text>
+          <text class='price'>{{detail.price}}</text>
+        </view>
+
+        <view class='box3'>
+          <text>{{detail.description}}</text>
+        </view>
+
+        <view class='box4'>
+          <block wx:for="{{detail.images}}" wx:key="index">
+            <image src='{{item.url}}' style='width:100%' mode='widthFix'></image>
+          </block>
+        </view>
+      </view>
+
+      <view class='box-message' id='message'>
+        <view class='box-message-v1'>
+          <text>留言({{detail.messages.length}})</text>
+          <text class='like-count'>{{detail.like}}人想要</text>
+        </view>
+        <form bindsubmit='send'>
+          <view class='box-message-v2'>
+            <image src='{{userInfo.avatarUrl}}'></image>
+
+            <input placeholder='{{holderText}}' name='content' maxlength='500' value='{{inputVal}}' focus='{{inputFocus}}' adjust-position='true'></input>
+            <button form-type='submit'>发送</button>
+          </view>
+        </form>
+        <scroll-view scroll-y='true' style='height:300px'>
+          <block wx:for="{{detail.messages}}" wx:key="index">
+            <view class='box-message-v3' bindtap='remsgChoose' data-msg_id='{{item.id}}' data-re_user='{{item.nickName}}'>
+              <view class='message'>
+                <image src='{{item.avatarUrl}}'></image>
+                <view class='message-right'>
+                  <view>
+                    <text class='message-title'>{{item.nickName}}</text>
+                    <text class='message-time'>{{item.created}}</text>
+                  </view>
+                  <block wx:if="{{!item.re_msg}}">
+                    <view class='message-content'>
+                      {{item.content}}
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view>
+                      <view class='message-content'>
+                        <text>回复@</text>
+                        <text class='message-original-title'>{{item.re_msg.nickName}}</text>
+                        <text class='message-return-content'>{{item.content}}</text>
+                      </view>
+                      <view class='message-original'>
+                        |{{item.re_msg.nickName}}：{{item.re_msg.content}}
+                      </view>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+
+      <view class='bottom'>
+        <view class='bot-left'>
+          <view class='bottom-left' bindtap='wantTap'>
+            <image class='like-img' src='/images/wanted.png' wx:if="{{wantStatus}}"></image>
+            <image class='like-img' src='/images/want.png' wx:else></image>
+            <text>想要</text>
+          </view>
+          <view class='bottom-left' bindtap='messageTap'>
+            <image class='like-img' src='/images/message.png'></image>
+            <text>留言</text>
+          </view>
+        </view>
+        <text class='want-text' bindtap='copy'>联系</text>
+      </view>
+    </view>
+  </view>
+</view>
