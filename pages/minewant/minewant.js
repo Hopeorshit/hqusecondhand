@@ -1,8 +1,8 @@
 var app = getApp();
 import {
   MineWant
-} from "./minewant_model.js"
-var mineWant = new MineWant;
+} from "../../models/minewant.js"
+var http = new MineWant;
 Page({
   /**
    * 页面的初始数据
@@ -42,7 +42,7 @@ Page({
 
   //获取商品的http请求
   userGoodsRequest: function (callBack){
-    mineWant.userGoods(this.data.content.page,(res) => {
+    http.userGoods(this.data.content.page,(res) => {
       var content = this.data.content;
       var resList = res.data;
       var contentList = content.list;

@@ -1,8 +1,8 @@
-// pages/needsdetail/needsdetail.js
+// pages/needsdetail/http.js
 import {
   NeedsDetail
-} from "./needsdetail_model.js"
-var needsDetail = new NeedsDetail();
+} from "../../models/needsdetail.js"
+var http = new NeedsDetail();
 Page({
 
   /**
@@ -27,7 +27,7 @@ Page({
    * 获取商品详情的HTTP请求和回调
    */
   needsDetailHttp: function (needs_id) {
-    needsDetail.needsDetail(needs_id, (res) => {
+    http.needsDetail(needs_id, (res) => {
       this.setData({
         detail: res.data
       })

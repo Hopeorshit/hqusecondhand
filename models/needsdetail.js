@@ -1,6 +1,6 @@
 import {
   Base
-} from '../../utils/base.js'
+} from '../utils/base.js'
 class NeedsDetail extends Base {
   constructor() {
     super();

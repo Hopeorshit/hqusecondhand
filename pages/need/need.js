@@ -2,8 +2,8 @@
 var app = getApp();
 import {
   Need
-} from "./need_model.js"
-var need = new Need;
+} from "../../models/need.js"
+var http = new Need;
 
 Page({
 
@@ -50,7 +50,7 @@ Page({
 
   //需求数据请求
   needsAllRequset: function(callBack) {
-    need.needsAll(this.data.content.page,(res) => {
+    http.needsAll(this.data.content.page,(res) => {
       var content = this.data.content;
       var resList = res.data;
       var contentList = content.list;

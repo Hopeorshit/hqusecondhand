@@ -1,4 +1,4 @@
-import { Base } from '../../utils/base.js'
+import { Base } from '../utils/base.js'
 class MineNeed extends Base {
   constructor() {
     super();

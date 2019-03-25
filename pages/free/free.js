@@ -2,8 +2,8 @@
 var app = getApp();
 import {
   Free
-} from "./free_model.js"
-var free = new Free;
+} from "../../models/free.js"
+var http = new Free;
 Page({
 
   /**
@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function(options) {
     this.initData();
-    this.freeRequest((res)=>{
+    this.httpRequest((res)=>{
       this.setData({
         notFirstLoad:true
       })
@@ -35,8 +35,8 @@ Page({
     })
   },
 
-  freeRequest(callBack) {
-    free.goodsFree(this.data.content.page, (res) => {
+  httpRequest(callBack) {
+    http.goodsFree(this.data.content.page, (res) => {
       var content = this.data.content;
       var resList = res.data;
       var contentList = content.list;
@@ -63,13 +63,13 @@ Page({
 
   onReachBottom: function() {
     if (this.data.content.hasMore) {
-      this.freeRequest();
+      this.httpRequest();
     }
   },
 
   onPullDownRefresh: function() {
     this.initData();
-    this.freeRequest((res) => {
+    this.httpRequest((res) => {
       wx.stopPullDownRefresh();
     });
   }

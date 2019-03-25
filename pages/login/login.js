@@ -2,8 +2,8 @@
 var app=getApp();
 import {
   Login
-} from './login_model.js';
-var login = new Login();
+} from '../../models/login.js';
+var http = new Login();
 Page({
 
   /**
@@ -44,7 +44,7 @@ Page({
         }
       })
     } else {
-      login.encrypt(event.detail.encryptedData, event.detail.iv,
+      http.encrypt(event.detail.encryptedData, event.detail.iv,
         (res) => {
           app.globalData.loginStatus = true;
           wx.setStorageSync('userInfo', res.data);

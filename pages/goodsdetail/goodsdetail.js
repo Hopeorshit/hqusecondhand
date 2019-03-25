@@ -1,8 +1,8 @@
 // pages/goodsdetail/goodsdetail.js
 import {
   GoodsDetail
-} from "./goodsdetail_model.js"
-var goodsDetail = new GoodsDetail();
+} from "../../models/goodsdetail.js"
+var http = new GoodsDetail();
 Page({
 
   /**
@@ -26,7 +26,7 @@ Page({
 
   onShow() {
     this.checkLogin(() => {
-      this.goodsDetailHttp((res) => {
+      this.httpHttp((res) => {
         this.setData({
           notFirstLoad: true,
           userInfo: wx.getStorageSync('userInfo')
@@ -55,8 +55,8 @@ Page({
   /**
    * 获取商品详情的HTTP请求和回调
    */
-  goodsDetailHttp: function(callBack) {
-    goodsDetail.goodsDetail(this.data.goods_id, (res) => {
+  httpHttp: function(callBack) {
+    http.goodsDetail(this.data.goods_id, (res) => {
       this.setData({
         detail: res.data,
         wantStatus: res.data.wantStatus
@@ -71,7 +71,7 @@ Page({
     this.setData({
       wantStatus: !this.data.wantStatus
     })
-    goodsDetail.wantHandle(this.data.goods_id, (res) => {
+    http.wantHandle(this.data.goods_id, (res) => {
       if (res.data.status) {
         wx.showToast({
           title: '收藏成功',
@@ -122,7 +122,7 @@ Page({
       setTimeout(function() {
         wx.hideLoading();
       }, 600);
-      goodsDetail.messageNew(this.data.goods_id, this.data.msg_id, content, (res) => {
+      http.messageNew(this.data.goods_id, this.data.msg_id, content, (res) => {
         detail.messages.splice(0, 0, res.data);
         this.setData({
           detail: detail,

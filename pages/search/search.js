@@ -1,9 +1,9 @@
 // pages/free/free.js
 var app = getApp();
 import {
-  Http
-} from "./http.js"
-var http = new Http;
+  Search
+} from "../../models/search.js"
+var http = new Search;
 Page({
 
   /**

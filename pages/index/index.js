@@ -1,8 +1,8 @@
 var app = getApp();
 import {
   Index
-} from "./index_model.js"
-var index = new Index;
+} from "../../models/index.js"
+var http = new Index;
 Page({
   /**
    * 页面的初始数据
@@ -54,7 +54,7 @@ Page({
    *获取目录HTTP请求
    */
   categoryAll: function(callBack) {
-    index.categoryAll((res) => {
+    http.categoryAll((res) => {
       callBack && callBack();
       var tabs = res.data;
       tabs.splice(0, 0, {
@@ -84,7 +84,7 @@ Page({
   categoryID(callBack) {
     var activeIndex = this.data.activeIndex;
     var tabs = this.data.tabs;
-    index.categoryID(tabs[activeIndex].id, tabs[activeIndex].page, (res) => {
+    http.categoryID(tabs[activeIndex].id, tabs[activeIndex].page, (res) => {
       console.log(res);
       var resList = res.data;
       var dataList = tabs[activeIndex].list

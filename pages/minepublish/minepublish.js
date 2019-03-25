@@ -1,9 +1,9 @@
-// pages/minepublish/minepublish.js
+// pages/minepublish/http.js
 var app = getApp();
 import {
   MinePublish
-} from "./minepublish_model.js"
-var minePublish = new MinePublish;
+} from "../../models/minepublish.js"
+var http = new MinePublish;
 Page({
 
   /**
@@ -37,7 +37,7 @@ Page({
 
   //获取商品的http请求
   userGoodsRequest: function(callBack) {
-    minePublish.userGoods(this.data.content.page,(res) => {
+    http.userGoods(this.data.content.page,(res) => {
       var content = this.data.content;
       var resList = res.data;
       var contentList = content.list;
@@ -64,7 +64,7 @@ Page({
 
   //操作商品的http
   goodsHanleRequest: function(dataset) {
-    minePublish.goodsHandle(dataset, (res) => {
+    http.goodsHandle(dataset, (res) => {
       wx.showToast({
         title: '操作成功',
       })

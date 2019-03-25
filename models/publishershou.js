@@ -1,4 +1,4 @@
-import { Base } from '../../utils/base.js'
+import { Base } from '../utils/base.js'
 class PublishErShou extends Base {
   constructor() {
     super();

@@ -1,10 +1,10 @@
 import {
   PublishNeed
-} from "./publishneed_model.js"
+} from "../../models/publishneed.js"
 import {
   Config
 } from '../../utils/config.js'
-var publishNeed = new PublishNeed();
+var http = new PublishNeed();
 var app = getApp();
 Page({
 
@@ -24,7 +24,7 @@ Page({
   },
   //获取目录的http请求
   categoryAll: function() {
-    publishNeed.categoryAll((res) => {
+    http.categoryAll((res) => {
       this.setData({
         category: res.data
       })
@@ -66,7 +66,7 @@ Page({
   },
   //点击获取电话号码
   phone: function(event) {
-    publishNeed.encrypt(event.detail.encryptedData, event.detail.iv, (res) => {
+    http.encrypt(event.detail.encryptedData, event.detail.iv, (res) => {
       console.log(res);
       this.setData({
         phone: res.data.phoneNumber
@@ -97,7 +97,7 @@ Page({
       wx.showLoading({
         title: '发布中',
       })
-      publishNeed.needsCreate(e.detail.value, (res) => {
+      http.needsCreate(e.detail.value, (res) => {
         var localImage = this.data.localImage
         if (localImage.length > 0) {
           this.uploadPic(res.data)

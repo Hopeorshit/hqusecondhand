@@ -2,8 +2,8 @@
 var app = getApp();
 import {
   MineNeed
-} from "./mineneed_model.js"
-var mineNeed = new MineNeed;
+} from "../../models/mineneed.js"
+var http = new MineNeed;
 Page({
 
   /**
@@ -37,7 +37,7 @@ Page({
   },
 
   userNeedsRequest: function(callBack) {
-    mineNeed.userNeeds(this.data.content.page,(res) => {
+    http.userNeeds(this.data.content.page,(res) => {
       var content = this.data.content;
       var resList = res.data;
       var contentList = content.list;
@@ -65,7 +65,7 @@ Page({
 
   //操作商品的http
   needsHanleRequest: function(dataset) {
-    mineNeed.needsHandle(dataset, (res) => {
+    http.needsHandle(dataset, (res) => {
       wx.showToast({
         title: '操作成功',
       })

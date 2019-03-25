@@ -1,10 +1,10 @@
 import {
   PublishErShou
-} from "./publishershou_model.js"
+} from "../../models/publishershou.js"
 import {
   Config
 } from '../../utils/config.js'
-var publishErShou = new PublishErShou();
+var http = new PublishErShou();
 var app = getApp();
 Page({
 
@@ -25,7 +25,7 @@ Page({
   },
   //获取目录的http请求
   categoryAll: function() {
-    publishErShou.categoryAll((res) => {
+    http.categoryAll((res) => {
       this.setData({
         category: res.data
       })
@@ -66,7 +66,7 @@ Page({
   },
   //点击获取电话号码
   phone: function(event) {
-    publishErShou.encrypt(event.detail.encryptedData, event.detail.iv, (res) => {
+    http.encrypt(event.detail.encryptedData, event.detail.iv, (res) => {
       console.log(res);
       this.setData({
         phone: res.data.phoneNumber
@@ -101,7 +101,7 @@ Page({
       this.setData({
         publishing: true
       })
-      publishErShou.goodsCreate(e.detail.value, (res) => {
+      http.goodsCreate(e.detail.value, (res) => {
         this.uploadPic(res.data)
       });
     }

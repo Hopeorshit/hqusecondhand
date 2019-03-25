@@ -1,5 +1,5 @@
-import { Base } from '../../utils/base.js'
-class Http extends Base {
+import { Base } from '../utils/base.js'
+class Search extends Base {
   constructor() {
     super();
   }
@@ -13,4 +13,4 @@ class Http extends Base {
     this.request(params);
   }
 }
-export { Http }
+export { Search }

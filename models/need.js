@@ -1,11 +1,11 @@
-import { Base } from '../../utils/base.js'
-class Free extends Base {
+import { Base } from '../utils/base.js'
+class Need  extends Base {
   constructor() {
     super();
   }
-  goodsFree(page,callBack) {
+  needsAll(page,callBack) {
     var params = {
-      url: 'goods/free?page='+page,
+      url: 'needs/all?page='+page,
       sCallBack: function (res) {
         callBack && callBack(res);
       },
@@ -13,4 +13,4 @@ class Free extends Base {
     this.request(params);
   }
 }
-export { Free }
+export { Need }
