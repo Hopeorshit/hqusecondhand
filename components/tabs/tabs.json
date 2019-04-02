@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wz-category":"/components/content/category/category"
+  }
+}

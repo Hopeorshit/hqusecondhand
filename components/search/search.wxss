@@ -1,0 +1,26 @@
+/* components/search/search.wxss */
+/* 搜索框*/
+@import './weui-searchbar.wxss';
+.search-bar-box {
+}
+.weui-search-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  top: 0rpx;
+  height: 92rpx;
+  background-color: white;
+}
+.weui-search-bar__form {
+  border-radius: 40rpx;
+  margin: 0 30rpx;
+}
+.weui-search-bar__label {
+  border-radius: 40rpx;
+}
+.weui-icon-clear {
+  position: absolute;
+  right: 10px;
+  top: -1px;
+}

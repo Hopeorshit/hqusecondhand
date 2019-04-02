@@ -18,9 +18,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff6263",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "华园二手",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#888888",
@@ -33,22 +33,10 @@
         "selectedIconPath": "/images/home_sel.png"
       },
       {
-        "pagePath": "pages/free/free",
-        "text": "免费",
-        "iconPath": "/images/free.png",
-        "selectedIconPath": "/images/free_sel.png"
-      },
-      {
-        "pagePath": "pages/publish/publish",
+        "pagePath": "pages/publishershou/publishershou",
         "text": "发布",
         "iconPath": "/images/publish.png",
         "selectedIconPath": "/images/publish_sel.png"
-      },
-      {
-        "pagePath": "pages/need/need",
-        "text": "需求",
-        "iconPath": "/images/need.png",
-        "selectedIconPath": "/images/need_sel.png"
       },
       {
         "pagePath": "pages/mine/mine",
@@ -57,5 +45,6 @@
         "selectedIconPath": "/images/mine_sel.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

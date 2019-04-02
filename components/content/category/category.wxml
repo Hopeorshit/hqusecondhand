@@ -1,0 +1,9 @@
+<wz-goods list="{{content.list}}" categoryID="{{categoryID}}" initSel="{{initSel}}"/>
+
+<view wx:if="{{content.empty}}">
+  <wz-nothing tip="暂无" />
+</view>
+<view wx:else>
+  <wz-loading wx:if="{{loading}}" more="{{content.more}}" />
+</view>
+

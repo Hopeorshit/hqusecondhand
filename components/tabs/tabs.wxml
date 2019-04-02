@@ -1,0 +1,23 @@
+<view id="tab" class='{{tabFixed?"fixed-tab":""}}' style='top:{{searchHeight}}px'>
+  <scroll-view class="scroll-view  {{scrollFixed?'scroll-fixed':''}}" scroll-x="true" id='tabs'>
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="index">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title tab">{{item.name}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px); width:{{tabs[activeIndex].width}}px"></view>
+    </view>
+  </scroll-view>
+</view>
+
+<wz-category categoryID="{{tabs[activeIndex].id}}" />
+
+<!-- <view class='scroll-y' style='margin-top:{{tabFixed?tabHeight:0}}px'>
+  <block wx:for="{{tabs}}" wx:key="index">
+    <view class="weui-tab__content" hidden="{{activeIndex != index}}">
+      <template is="goods" data="{{list:tabs[index].goods.list}}"></template>
+      <template is="bottom-loading" data="{{hasMore:tabs[index].goods.hasMore}}" />
+    </view>
+  </block>
+</view> -->

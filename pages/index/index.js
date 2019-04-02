@@ -14,95 +14,38 @@ Page({
       url: '/images/banner2.jpg'
     }, {
       url: '/images/banner3.jpg'
-    }]
+    }],
+    topHeight: null,
+    tabFixed: false,
+    notFirstLoad: false
   },
   /*
-   *转发再次进入会重载页面，但是app.globalData确没变
+   *转发再次进入会重载页面，但是app.globalData却没变
    */
   onLoad: function() {
-    this.initData();
-    this.categoryAll((res) => {
-      this.setData({
-        notFirstLoad: true
-      })
-    });
-  },
 
+  },
+   
+  /**
+   * 页面显示
+   */
   onShow: function(options) {
-    console.log(app.globalData.indexRefresh);
     if (app.globalData.indexRefresh) {
-      this.initData();
-      this.categoryAll((res) => {
-        this.setData({
-          notFirstLoad: true
-        })
-      });
       app.globalData.indexRefresh = false;
     }
   },
-  /*
-   *初始化data页面数据
+  
+  /**
+   * 由tabs组件触发
    */
-  initData: function() {
+  pageInited:function(){
+    console.log("由tabs组件触发");
     this.setData({
-      activeIndex: 0,
-      sliderOffset: 0,
+      notFirstLoad:true
     })
+    this._getTopHeight();
   },
-
-  /*
-   *获取目录HTTP请求
-   */
-  categoryAll: function(callBack) {
-    http.categoryAll((res) => {
-      callBack && callBack();
-      var tabs = res.data;
-      tabs.splice(0, 0, {
-        'name': "全部",
-        "id": 0,
-        "width": 28
-      })
-      tabs.forEach(function(value, index) {
-        value.page = 1;
-        value.hasMore = true;
-        value.list = [];
-        value.item = value.name;
-        value.tap = false;
-        if (index == 0) {
-          value.tap = true;
-        }
-      })
-      this.setData({
-        tabs: tabs
-      })
-      this.sliderSet();
-      this.categoryID();
-    })
-  },
-
-  //请求目录下的商品，并进行数据绑定
-  categoryID(callBack) {
-    var activeIndex = this.data.activeIndex;
-    var tabs = this.data.tabs;
-    http.categoryID(tabs[activeIndex].id, tabs[activeIndex].page, (res) => {
-      console.log(res);
-      var resList = res.data;
-      var dataList = tabs[activeIndex].list
-      tabs[activeIndex].tap = true;
-      tabs[activeIndex].list = dataList.concat(resList);
-      tabs[activeIndex].page = tabs[activeIndex].page + 1;
-      if (resList.length == 10) {
-        tabs[activeIndex].hasMore = true;
-      } else {
-        tabs[activeIndex].hasMore = false;
-      }
-      this.setData({
-        tabs: tabs
-      })
-      callBack && callBack(res);
-    })
-  },
-
+   
   /*
    *点击goodsDetail
    */
@@ -113,57 +56,6 @@ Page({
     })
   },
 
-  /*
-  点击tab选项卡
-  */
-  tabClick: function(e) {
-    var activeIndex = e.currentTarget.id;
-    console.log(e);
-    this.setData({
-      sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: activeIndex
-    });
-    var tabs = this.data.tabs;
-    if (!tabs[activeIndex].tap) {
-      this.categoryID();
-    }
-  },
-  /*
-  设定下面slider的宽度
-  确定下方Tab栏距离顶部的距离
-  */
-  sliderSet: function() {
-    var that = this;
-    //创建节点选择器
-    var query = wx.createSelectorQuery();
-    //选择id
-    query.selectAll('.tab').boundingClientRect();
-    // query.select('#tabs').boundingClientRect();
-    // query.select('#search').boundingClientRect();
-    var tabs = that.data.tabs;
-    query.exec(function(res) {
-      console.log(res)
-      res[0].forEach(function(value, index) {
-        tabs[index].width = value.width
-      })
-      that.setData({
-        tabs: tabs,
-      })
-    })
-  },
-  /*
-  设置滚动吸附效果
-  */
-  // onPageScroll: function(e) {
-  //   var canScroll = e.scrollTop >= this.data.tabToTop
-
-  // },
-
-  contentScrollUp: function() {
-    this.setData({
-      canScroll: false
-    })
-  },
   onReachBottom: function() {
     var activeIndex = this.data.activeIndex;
     var tabs = this.data.tabs;
@@ -193,36 +85,11 @@ Page({
       wx.stopPullDownRefresh();
     });
   },
-  /*
-   *以下部分是处理搜索框逻辑
-   */
-  showInput: function() {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function() {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
-  clearInput: function() {
-    this.setData({
-      inputVal: ""
-    });
-  },
-  inputTyping: function(e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
-  },
-  search: function() {
-    wx.navigateTo({
-      url: '/pages/search/search?text=' + this.data.inputVal
-    })
-  },
 
+
+  /**
+   * 点击banner区域
+   */
   bannerTap: function(e) {
     var dataSet = e.currentTarget.dataset;
     var index = dataSet.index;
@@ -243,9 +110,73 @@ Page({
     }
   },
 
+  /**
+   * 分享小程序
+   */
   onShareAppMessage: function() {
 
   },
 
+  /**
+   * 监听滑动事件
+   */
+  onPageScroll: function(e) {
+    var topHeight = this.data.topHeight;
+    this.setData({
+      tabFixed: e.scrollTop > topHeight
+    })
+  },
 
+  /**
+   * 获取一开始的上半部分区域的高度
+   */
+  _getTopHeight: function() {
+    var query = wx.createSelectorQuery();
+    var that = this;
+    query.select('#top').boundingClientRect();
+    query.select('#tab').boundingClientRect();
+    query.exec(function (res) {
+      console.log(res);
+      that.setData({
+        topHeight:res[0].height,
+        tabHeight:res[1].height
+      })
+    })
+  },
+
+  /**
+   * 由search组件触发
+   * 传递出search组件的高度
+   */
+  setSearchHeight: function(e) {
+    this.setData({
+      searchHeight: e.detail.searchHeight
+    })
+  },
+  /**
+   * 由search组件触发
+   * 触发搜索事件
+   */
+  search: function(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/search/search?text=' + e.detail.inputVal,
+    })
+  }
+  /** 做tab的顶上吸附
+   * 步骤
+   * 1 获取到上半部分区域的高度
+   * 2 监听滑动事件，当页面滑动高于上半区高度，将Tab栏进行Fixed处理
+   * 3 Fixed处理的时候，要距离顶部一个top数值，即搜索框的高度。
+   *   注意内容区不能同时fixe,只fix Tab;
+   *   这样的话下面内容区也需要margin-top 一个数值，即tab的高度 
+   */
+
+  /**
+   * 做页面的组件化开发
+   * 1：搜索框的组件化
+   * 2：tabs组件化
+   * 3：商品内容组件化
+   *    该组件要作为Tabs的儿子组件
+   */
 })
